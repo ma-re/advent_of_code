@@ -6,7 +6,7 @@ def get_data(path: str) -> list:
     return data
 
 # Replace written numbers with digits
-def replace_numbers_front(elem, reverse=False):
+def replace_numbers(elem, reverse=False):
     replacement_dict = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 
                     'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 
                     'eno': 1, 'owt': 2, 'eerht': 3, 'ruof': 4, 'evif': 5, 
@@ -30,8 +30,8 @@ def calculate(data: list, part_two=False) -> int:
     count = 0
     for elem in data:
         if part_two:
-            elem_front = replace_numbers_front(elem)
-            elem_back = replace_numbers_front(elem, reverse=True)
+            elem_front = replace_numbers(elem)
+            elem_back = replace_numbers(elem, reverse=True)
             front_numbers = re.findall("[0-9]", elem_front)
             back_numbers = re.findall("[0-9]", elem_back)
             count += int(front_numbers[0] + back_numbers[0])
